@@ -1,33 +1,26 @@
-<form class="login-form">
-  <div>
-    <label for="email-login">email:</label>
-    <input type="text" id="email-login" />
-  </div>
-  <div>
-    <label for="password-login">password:</label>
-    <input type="password" id="password-login" />
-  </div>
-  <div>
-    <button type="submit">login</button>
-  </div>
-</form>
+<!-- Login Screen -->
+<div class="card w-100 p-3">
 
-<form class="signup-form">
-  <div>
-    <label for="username-signup">username:</label>
-    <input type="text" id="username-signup" />
+  <div class="card-body border border-dark ">
+    <h5 class="card-title d-flex justify-content-between text-dark" style="background-color: aquamarine ;padding: 4px">
+      Login</h5>
+    <div class="form-outline">
+      <input type="email" id="typeEmail" class="form-control" />
+      <label class="form-label" for="typeEmail">Email</label>
+    </div>
+    <div class="form-outline">
+      <input type="password" id="typePassword" class="form-control" />
+      <label class="form-label" for="typePassword">Password</label>
+    </div>
   </div>
-  <div>
-    <label for="email-signup">email:</label>
-    <input type="text" id="email-signup" />
+
+  <form class="login-form card-body d-flex justify-content-around">
+    <button class="btn btn-primary w-75 " type="submit">Login</button>
+  </form>
+  <div class="card-body">
+    <a href="/signup" class="card-link">Sign Up Instead</a>
   </div>
-  <div>
-    <label for="password-signup">password:</label>
-    <input type="password" id="password-signup" />
-  </div>
-  <div>
-    <button type="submit">signup</button>
-  </div>
-</form>
+</div>
+
 
 <script src="/javascript/login.js"></script>

@@ -1,21 +1,27 @@
-{{> post-info post}}
+<div class="card w-100 p-3">
 
-{{#if loggedIn}}
-<form class="comment-form">
-  <div>
-    <textarea name="comment-body"></textarea>
-  </div>
+    {{> post-info post}}
 
-  <div>
-    <button type="submit">add comment</button>
-    <button type="button" class="upvote-btn">upvote</button>
-  </div>
-</form>
-{{/if}}
+    {{#if post.comments.length}}
+    {{> comments post.comments}}
+    {{/if}}
 
-{{> comments post.comments}}
 
-{{#if loggedIn}}
+    {{#if loggedIn}}
+    <div class="form-group border border-dark">
+        <label for="exampleFormControlTextarea2" class="text-dark w-100">Add a comment</label>
+        <textarea class="form-control rounded-0" id="typeComment" rows="3"></textarea>
+    </div>
+
+    <form class="comment-form card-body d-flex justify-content-around">
+        <button class="btn btn-primary {{#if dashboard}} w-25 {{else}} w-75 {{/if}} " type="submit">Add
+            Comment</button></br>
+        {{#if dashboard}}
+        <a class="btn btn-primary w-25" href="/dashboard/edit/{{post.id}}">Edit Post</a>
+        {{/if}}
+    </form>
+    {{/if}}
+
+</div>
+
 <script src="/javascript/comment.js"></script>
-<script src="/javascript/upvote.js"></script>
-{{/if}}

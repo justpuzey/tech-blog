@@ -1,7 +1,16 @@
-<ol class="post-list">
-  {{#each posts as |post|}}
-  <li>
-    {{> post-info post }}
-  </li>
-  {{/each}}
-</ol>
+<div class="card w-100 p-3">
+
+    <div class="card-body border border-dark ">
+        <h5 class="card-title d-flex justify-content-between text-dark">Welcome to Tech Blog</h5>
+        <p class="card-text">Tech Blog. You can post tech articles here and see your posts on your user dashboard! Just
+            head to the login page to get signed in, or sign up for an account.</p>
+    </div>
+    <article class="post">
+
+        {{#each posts as |post| }}
+        {{> post-info post}}
+        {{/each}}
+
+    </article>
+
+</div>
