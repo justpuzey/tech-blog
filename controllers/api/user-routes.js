@@ -56,10 +56,10 @@ router.post('/', (req, res) => {
     password: req.body.password
   })
     .then(dbUserData => {
-     req.session.save(() => {
-       req.session.user_id = dbUserData.id;
-       req.session.username = dbUserData.username;
-       req.session.loggedIn = true;
+      req.session.save(() => {
+        req.session.user_id = dbUserData.id;
+        req.session.username = dbUserData.username;
+        req.session.loggedIn = true;
 
         res.json(dbUserData);
       });
@@ -70,7 +70,7 @@ router.post('/', (req, res) => {
     });
 });
 
-router.post('/login',  (req, res) => {
+router.post('/login', (req, res) => {
   // expects {email: 'lernantino@gmail.com', password: 'password1234'}
   User.findOne({
     where: {
@@ -88,7 +88,8 @@ router.post('/login',  (req, res) => {
       res.status(400).json({ message: 'Incorrect password!' });
       return;
     }
-
+    console.log('user:', dbUserData.get({ plain: true }))
+    dbUserData = dbUserData.get({ plain: true });
     req.session.save(() => {
       req.session.user_id = dbUserData.id;
       req.session.username = dbUserData.username;
@@ -96,7 +97,8 @@ router.post('/login',  (req, res) => {
 
       console.log(dbUserData)
 
-      res.json({ user: dbUserData, message: 'You are now logged in!' });
+      res.redirect('/dashboard')
+      // res.json({ user: dbUserData, message: 'You are now logged in!' });
     });
   });
 });

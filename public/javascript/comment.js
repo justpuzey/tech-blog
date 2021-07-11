@@ -28,5 +28,6 @@ async function commentFormHandler(event) {
     }
   }
 }
-
-document.querySelector('.comment-form').addEventListener('submit', commentFormHandler);
+if (document.querySelector('.comment-form')) {
+  document.querySelector('.comment-form').addEventListener('submit', commentFormHandler);
+}
